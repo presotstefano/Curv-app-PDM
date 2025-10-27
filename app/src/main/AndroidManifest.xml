@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+
+    <application
+        android:name=".MainApplication" android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.CurvApp"
+        tools:targetApi="31">
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBEnXTjl9VE6noasfLsantkyWZ_KEI2a_s" />
+
+        <activity
+            android:name=".ui.activity.LoginActivity"
+            android:exported="true"
+            android:theme="@style/Theme.CurvApp">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".ui.activity.RegisterActivity"
+            android:exported="false"
+            android:theme="@style/Theme.CurvApp"/>
+
+        <activity
+            android:name=".ui.activity.MainActivity"
+            android:exported="false"
+            android:theme="@style/Theme.CurvApp"/>
+
+        <activity
+            android:name=".ui.activity.EmailVerificationActivity"
+            android:exported="false"
+            android:theme="@style/Theme.CurvApp"/>
+
+        <activity
+            android:name=".ui.activity.ForgotPasswordActivity"
+            android:exported="false"
+            android:theme="@style/Theme.CurvApp"/>
+
+        <activity
+            android:name=".ui.activity.ProfileSetupActivity"
+            android:exported="false"
+            android:theme="@style/Theme.CurvApp"/>
+
+        <activity
+            android:name=".ui.activity.CreateRouteActivity"
+            android:exported="false"
+            android:theme="@style/Theme.CurvApp" />
+
+        <activity
+            android:name=".ui.activity.RouteDetailActivity"
+            android:exported="false"
+            android:theme="@style/Theme.CurvApp.NoActionBar"/>
+
+        <activity
+            android:name=".ui.activity.CronometroActivity"
+            android:exported="false"
+            android:label="@string/title_activity_cronometro"
+            android:theme="@style/Theme.CurvApp.NoActionBar"/> <activity
+        android:name=".ui.activity.UserProfileActivity"
+        android:exported="false"
+        android:label="@string/title_activity_user_profile"
+        android:theme="@style/Theme.CurvApp.NoActionBar"/>
+
+        <activity
+            android:name=".ui.activity.EditProfileActivity"
+            android:exported="false"
+            android:label="@string/edit_profile_title"
+            android:theme="@style/Theme.CurvApp"/>
+
+        <activity
+            android:name=".ui.activity.UserDiscoveryActivity"
+            android:exported="false"
+            android:label="@string/user_discovery_title"
+            android:theme="@style/Theme.CurvApp"/>
+
+        <activity
+            android:name=".ui.activity.EventDiscoveryActivity"
+            android:exported="false"
+            android:label="@string/event_discovery_title"
+            android:theme="@style/Theme.CurvApp"/>
+
+        <activity
+            android:name=".ui.activity.CreateEventActivity"
+            android:exported="false"
+            android:label="@string/title_activity_create_event"
+            android:theme="@style/Theme.CurvApp.NoActionBar"/>
+    </application>
+
+</manifest>

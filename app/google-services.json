@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "702242801707",
+    "project_id": "curvapp-uni",
+    "storage_bucket": "curvapp-uni.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:702242801707:android:b9666da83ba84f215a826e",
+        "android_client_info": {
+          "package_name": "com.spstudio.curv_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBEnXTjl9VE6noasfLsantkyWZ_KEI2a_s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

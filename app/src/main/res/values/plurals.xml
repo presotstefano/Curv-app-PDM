@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="review_count">
+        <item quantity="one">%d review</item>
+        <item quantity="other">%d reviews</item>
+    </plurals>
+
+    <!-- Per le risposte (es. "View 1 reply" / "View 5 replies") -->
+    <plurals name="view_replies_count">
+        <item quantity="one">View %d reply</item>
+        <item quantity="other">View %d replies</item>
+    </plurals>
+
+    <plurals name="participant_count">
+        <item quantity="one">%d Participant</item>
+        <item quantity="other">%d Participants</item>
+    </plurals>
+</resources>

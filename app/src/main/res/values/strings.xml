@@ -1,0 +1,304 @@
+<resources>
+    <string name="profile_setup_title">One last step…</string>
+    <string name="profile_setup_subtitle">Complete your profile to get started.</string>
+    <string name="profile_setup_username_label">Username</string>
+    <string name="profile_setup_username_validator">Please enter a username</string>
+    <string name="profile_setup_bio_label">Short Bio</string>
+    <string name="profile_setup_bio_hint">Tell something about you…</string>
+    <string name="profile_setup_vehicle_label">My ride</string>
+    <string name="profile_setup_vehicle_hint">e.g., Mazda MX-5, Ducati Panigale</string>
+    <string name="profile_setup_style_label">Driving Style</string>
+    <string name="profile_setup_style_relaxed">Relaxed</string>
+    <string name="profile_setup_style_sporty">Sporty</string>
+    <string name="profile_setup_style_explorer">Explorer</string>
+    <string name="profile_setup_country_label">Country</string>
+    <string name="profile_setup_country_hint">Select your country</string>
+    <string name="profile_setup_button">Let\'s Go!</string>
+    <string name="profile_setup_country_error">Please select your country.</string>
+    <string name="profile_setup_save_error">Failed to save profile: %1$s</string>
+    <string name="profile_setup_select_country_title">Select Your Country</string>
+
+    <string name="main_nav_explore">Explore</string>
+    <string name="main_nav_community">Community</string>
+    <string name="main_nav_my_routes">My Routes</string>
+    <string name="main_nav_profile">Profile</string>
+
+    <string name="home_fragment_label">Home Fragment (Map)</string>
+    <string name="community_fragment_label">Community Fragment</string>
+    <string name="my_routes_fragment_label">My Routes Fragment</string>
+    <string name="profile_fragment_label">Profile Fragment</string>
+
+    <string name="profile_image_description">Profile Image</string>
+    <string name="edit_profile_image_button">Edit profile image</string>
+    <string name="create_route_fab_description">Create Route</string>
+
+    <string name="verification_title">Verify Your Email</string>
+    <string name="verification_subtitle">A verification link has been sent to:\n%1$s</string> <string name="verification_title_success">Email Verified!</string>
+    <string name="verification_subtitle_success">Thank you for verifying your email. You can now proceed.</string>
+    <string name="verification_resend_button">Resend Email</string>
+    <string name="verification_cancel_button">Cancel</string>
+    <string name="verification_continue_button">Continue</string>
+    <string name="verification_sent_toast">Verification email sent!</string>
+    <string name="verification_failed_toast">Failed to send verification email.</string>
+
+    <string name="forgot_password_title">Reset Password</string>
+    <string name="forgot_password_header">Forgot Your Password?</string>
+    <string name="forgot_password_subheader">No problem. Enter your email address below and we will send you a link to reset it.</string>
+    <string name="email_hint">Email</string> <string name="forgot_password_button">Send Reset Link</string>
+    <string name="forgot_password_success_message">Password reset link sent successfully! Please check your email (and spam folder).</string>
+    error_invalid_email
+    <string name="error_invalid_email">Email not valid.</string>
+
+    <string name="login_welcome_back">Welcome Back</string>
+    <string name="login_subtitle">Log in to continue your adventure</string>
+    <string name="register_title">Create Account</string>
+    <string name="register_subtitle">Sign up to get started</string>
+    <string name="password_hint">Password</string>
+    <string name="confirm_password_hint">Confirm Password</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="login_button_text">Login</string>
+    <string name="register_button_text">Create Account</string>
+    <string name="no_account_prompt">Don\'t have an account?</string>
+    <string name="already_account_prompt">Already have an account?</string>
+    <string name="error_password_length">Password must be at least 6 characters</string>
+    <string name="error_password_mismatch">Passwords do not match</string>
+    <string name="error_terms_unchecked">You must accept the Terms and Conditions.</string>
+    <string name="terms_agreement">I agree to the <a href="terms">Terms of Service</a> and <a href="policy">Privacy Policy</a></string>
+    <string name="back_button_description">Back</string>
+    <string name="app_icon_description">App Icon</string>
+    <string name="app_name">CurvApp</string>
+
+    <!-- Home Screen -->
+    <string name="home_search_hint">Search routes…</string>
+    <string name="home_refreshing_routes">Refreshing routes…</string>
+    <string name="home_view_details_button">View Full Details</string>
+    <string name="home_location_permission_denied">Location permissions are required for this feature.</string>
+
+    <!-- Map Style Selector -->
+    <string name="home_select_style_title">Select Map Style</string>
+    <string name="home_style_outdoors">Outdoors</string>
+    <string name="home_style_streets">Streets</string>
+    <string name="home_style_light">Light</string>
+    <string name="home_style_dark">Dark</string>
+    <string name="home_style_satellite">Satellite</string>
+
+    <!-- Difficulty Filter -->
+    <string name="home_filter_title">Filter by Difficulty</string>
+    <string name="home_filter_all">All Difficulties</string>
+    <string name="save_route_dialog_difficulty_easy">Easy</string>
+    <string name="save_route_dialog_difficulty_medium">Medium</string>
+    <string name="save_route_dialog_difficulty_hard">Hard</string>
+
+    <string name="create_route_title">Create Route</string>
+    <string name="create_route_banner_tap_to_start">Tap to set starting point</string>
+    <string name="create_route_banner_add_more_points">Add more waypoints or the finish point</string>
+    <string name="save_route_dialog_title">Save New Route</string>
+    <string name="save_route_dialog_distance">Distance: %1$s</string> <string name="save_route_dialog_name_label">Route Name</string>
+    <string name="save_route_dialog_description_label">Description</string>
+    <string name="save_route_dialog_difficulty_label">Difficulty</string>
+    <string name="dialog_cancel_button">Cancel</string>
+    <string name="dialog_save_button">Save</string>
+    <string name="error_route_name_empty">Route name cannot be empty.</string>
+    <string name="route_save_success">Route submitted for approval!</string>
+    <string name="route_save_failed">Failed to submit route.</string>
+    <string name="error_calculating_route">Error calculating route.</string>
+    <string name="error_no_route_found">No route found between points.</string>
+    <string name="error_min_waypoints">Add at least two points to save a route.</string>
+    <string name="action_undo">Undo</string>
+    <string name="action_clear">Clear</string>
+    <string name="action_save">Save</string>
+    <string name="action_center_location">Center on location</string>
+
+    <string name="route_detail_title">Route Details</string> <string name="route_detail_not_found">Route not found.</string>
+    <string name="route_detail_no_coordinates">No starting coordinate available.</string>
+    <string name="route_detail_maps_error">Could not open Google Maps.</string>
+    <string name="route_detail_distance">Distance</string>
+    <string name="route_detail_difficulty">Difficulty</string>
+    <string name="route_detail_likes">Likes</string>
+    <string name="route_detail_saves">Saves</string>
+    <string name="route_detail_timer_button">Timer</string>
+    <string name="route_detail_navigate_button">Navigate</string> <string name="route_detail_created_by">Created By</string>
+    <string name="no_description_provided">No description provided.</string>
+
+    <string name="route_detail_leaderboard">Leaderboard</string>
+    <string name="route_detail_reviews">Reviews (%d)</string>
+    <string name="route_detail_discussion">Discussion (%d)</string>
+
+    <string name="error_loading_route_details">Error loading route details.</string>
+    <string name="unknown_user">Unknown User</string>
+    <string name="created_by_placeholder">By: %1$s</string>
+    <string name="lorem_ipsum_short">Lorem Ipsum</string>
+
+    <string name="route_detail_leaderboard_empty">Be the first to set a time!</string>
+    <string name="route_detail_reply_button">Reply</string>
+    <string name="time_suffix_now">just now</string>
+    <string name="time_suffix_minute">%d minutes ago</string>
+    <string name="time_suffix_hour">%d hours ago</string>
+    <string name="time_suffix_day">%d days ago</string>
+    <string name="time_suffix_week">%d weeks ago</string>
+    <!-- Route detail: empty states -->
+    <string name="route_detail_reviews_empty">No reviews yet.</string>
+    <string name="route_detail_discussion_empty">No comments yet.</string>
+
+    <!-- Route detail: commenting -->
+    <string name="route_detail_add_comment_hint">Add a comment...</string>
+    <string name="route_detail_comment_post_error">Failed to post comment.</string>
+    <string name="route_detail_leave_review_button">Leave a review</string>
+    <string name="route_detail_view_replies">View replies</string>
+
+    <string name="route_detail_review_title">Rate this Route</string>
+    <string name="route_detail_review_rating_error">Please select a star rating.</string>
+    <string name="route_detail_review_success">Thank you for your review!</string>
+    <string name="route_detail_review_error">Failed to submit review: %1$s</string>
+    <string name="route_detail_review_comment_hint">Add a comment (optional)</string>
+    <string name="route_detail_review_submit_button">Submit Review</string>
+
+    <string name="route_detail_hide_replies">Hide Replies</string>
+    <string name="route_detail_reply_hint">Write a reply…</string>
+
+    <string name="title_activity_user_profile">User Profile</string>
+    <string name="title_activity_cronometro">Timer</string>
+
+    <string name="route_detail_action_report">Report Route</string>
+    <string name="route_detail_action_add_to_group">Add to Group</string>
+    <string name="route_detail_action_cancel">Cancel</string>
+
+    <string name="route_detail_report_title">Report this Route</string>
+    <string name="route_detail_report_reason_error">Please select a reason.</string>
+    <string name="route_detail_report_success">Report submitted. Thank you!</string>
+    <string name="route_detail_report_error">Failed to submit report: %1$s</string>
+    <string name="route_detail_report_hint">Please provide more details (optional)</string>
+    <string name="route_detail_report_submit_button">Submit Report</string>
+    <string name="report_reason_dangerous">Dangerous Route</string>
+    <string name="report_reason_private">Private Property / Restricted Access</string>
+    <string name="report_reason_inappropriate">Inappropriate Content (Name/Description)</string>
+    <string name="report_reason_spam">Spam or Advertisement</string>
+    <string name="report_reason_other">Other</string>
+
+    <string name="route_detail_group_sheet_title">Add this route to…</string>
+    <string name="route_detail_group_add_success">Route added to group.</string>
+    <string name="route_detail_group_remove_success">Route removed from group.</string>
+    <string name="route_detail_group_error">An error occurred.</string>
+    <string name="route_detail_group_no_admin_groups">You are not an admin of any group.</string>
+
+    <string name="my_routes_title">My Routes</string>
+    <string name="my_routes_status_approved">Approved</string>
+    <string name="my_routes_status_pending">Pending</string>
+    <string name="my_routes_status_rejected">Rejected</string>
+    <string name="my_routes_status_unknown">Unknown</string>
+    <string name="my_routes_empty_title">No Routes Created Yet</string>
+    <string name="my_routes_empty_subtitle">Tap the \"+\" button to map your first adventure!</string>
+    <string name="my_routes_empty_other_user">This user has no public routes.</string>
+    <string name="my_routes_delete_action">Delete Route</string>
+    <string name="my_routes_delete_dialog_title">Delete Route?</string>
+    <string name="my_routes_delete_dialog_content">This action is permanent and cannot be undone.</string>
+    <string name="my_routes_delete_dialog_cancel">Cancel</string>
+    <string name="my_routes_delete_dialog_confirm">Delete</string>
+    <string name="my_routes_delete_success">Route deleted successfully.</string>
+    <string name="my_routes_delete_error">Failed to delete route: %1$s</string>
+    <string name="my_routes_rejection_reason_title">Reason for Rejection</string>
+    <string name="my_routes_rejection_reason_default">No specific reason was provided.</string>
+    <string name="my_routes_rejection_reason_ok">OK</string>
+    <string name="my_routes_rejection_reason_link">View Reason</string>
+    <string name="my_routes_empty_title_other_user">Empty Title</string>
+
+    <string name="user_profile_not_found">User not found.</string>
+    <string name="user_profile_unnamed_pilot">Unnamed Pilot</string>
+    <string name="user_profile_followers">Followers</string>
+    <string name="user_profile_following">Following</string>
+    <string name="user_profile_routes_created">Routes Created</string>
+    <string name="user_profile_total_distance">Total Distance</string>
+    <string name="user_profile_routes_driven">Routes Driven</string>
+    <string name="user_profile_edit_button">Edit Profile</string>
+    <string name="user_profile_following_button">Following</string>
+    <string name="user_profile_follow_button">Follow</string>
+    <string name="user_profile_my_saved_routes">My Saved Routes</string>
+    <string name="user_profile_created_routes">Created Routes</string>
+    <string name="user_profile_driving_style">Driving Style</string>
+    <string name="user_profile_tab_saved">Saved</string>
+    <string name="user_profile_tab_created">Created</string>
+    <string name="user_profile_bio_empty">This pilot hasn\'t written a bio yet.</string>
+    <string name="user_profile_vehicle_empty">No vehicle specified.</string>
+
+    <string name="logout_dialog_title">Confirm Logout</string>
+    <string name="logout_dialog_content">Are you sure you want to log out?</string>
+    <string name="logout_dialog_cancel">Cancel</string>
+    <string name="logout_dialog_confirm">Logout</string>
+
+    <string name="settings_title">Settings</string>
+
+    <string name="profile_style_relaxed">Relaxed</string>
+    <string name="profile_style_sporty">Sporty</string>
+    <string name="profile_style_explorer">Explorer</string>
+
+    <string name="saved_routes_empty_title">No Saved Routes</string>
+    <string name="saved_routes_empty_subtitle">Explore and bookmark routes to see them here!</string>
+    <string name="saved_routes_error">Error loading saved routes.</string>
+
+    <string name="edit_profile_title">Edit Profile</string>
+    <string name="edit_profile_username_label">Username</string>
+    <string name="edit_profile_bio_label">Bio</string>
+    <string name="edit_profile_vehicle_label">Vehicle</string>
+    <string name="edit_profile_style_label">Driving Style</string>
+    <string name="edit_profile_country_label">Country</string>
+    <string name="edit_profile_save_button">Save Changes</string>
+    <string name="edit_profile_change_password_button">Change Password</string>
+    <string name="edit_profile_saving">Saving…</string>
+    <string name="edit_profile_save_success">Profile updated successfully!</string>
+    <string name="edit_profile_save_error">Failed to update profile: %1s</string>
+    <string name="edit_profile_loading_error">Error loading profile data.</string>
+    <string name="edit_profile_image_upload_error">Image upload failed: %1s</string>
+
+    <string name="change_password_title">Change Password</string>
+    <string name="change_password_current_label">Current Password</string>
+    <string name="change_password_new_label">New Password</string>
+    <string name="change_password_confirm_label">Confirm New Password</string>
+    <string name="change_password_button">Update Password</string>
+    <string name="change_password_requires_reauth">Re-authentication required for security.</string>
+    <string name="change_password_success">Password updated successfully!</string>
+    <string name="change_password_error">Failed to update password: %1s</string>
+
+    <string name="community_hub_title">Community Hub</string>
+    <string name="community_stat_pilots">Pilots</string>
+    <string name="community_stat_routes">Routes</string>
+    <string name="community_stat_events">Events</string>
+    <string name="community_link_activity_feed">Activity Feed</string>
+    <string name="community_link_discover_groups">Discover Groups</string>
+    <string name="community_link_join_events">Join Events</string>
+    <string name="community_link_discover_pilots">Discover Pilots</string>
+    <string name="community_create_group_fab">Create Group</string>
+    <string name="error_loading_stats">Error loading stats</string>
+
+    <string name="user_discovery_title">Discover Pilots</string>
+    <string name="user_discovery_follow">Follow</string>
+    <string name="user_discovery_following">Following</string>
+    <string name="user_discovery_empty">No other pilots found.</string>
+    <string name="user_discovery_follow_error">Error following user: %1s</string>
+    <string name="user_discovery_unfollow_error">Error unfollowing user: %1s</string>
+
+    <string name="event_discovery_title">Discover Events</string>
+    <string name="event_discovery_empty">No upcoming events found.</string>
+    <string name="event_discovery_error">Error loading events.</string>
+    <string name="event_detail_route_label">Route:</string>
+    <string name="event_detail_participants_label">Participants:</string>
+    <string name="event_detail_view_event_button">View Event</string>
+    <string name="event_detail_route_info">Route: %1$s (%2$s)</string>
+
+    <string name="route_detail_action_create_event">Create Event</string>
+    <string name="title_activity_create_event">Create Event</string>
+    <string name="create_event_name_label">Event Name</string>
+    <string name="create_event_description_label">Description (Optional)</string>
+    <string name="create_event_date_label">Date</string>
+    <string name="create_event_time_label">Time</string>
+    <string name="create_event_select_date">Select Date</string>
+    <string name="create_event_select_time">Select Time</string>
+    <string name="create_event_add_banner_button">Add Banner Image (Optional)</string>
+    <string name="create_event_publish_button">Publish Event</string>
+
+    <string name="error_event_name_empty">Event name cannot be empty.</string>
+    <string name="error_event_date_time_missing">Please select date and time.</string>
+    <string name="event_save_success">Event published successfully!</string>
+    <string name="event_save_error">Failed to publish event: %1s</string>
+    <string name="event_image_upload_error">Banner upload failed: %1s</string>
+    <string name="event_saving">Publishing Event…</string>
+</resources>

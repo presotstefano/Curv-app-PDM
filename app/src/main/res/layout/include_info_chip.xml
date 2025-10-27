@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:paddingStart="10dp"
+    android:paddingEnd="10dp"
+    android:paddingTop="5dp"
+    android:paddingBottom="5dp"
+    android:background="@drawable/chip_background_grey"> <ImageView
+    android:id="@+id/chipIcon"
+    android:layout_width="14dp"
+    android:layout_height="14dp"
+    app:tint="@color/subtleTextColor"
+    tools:src="@drawable/ic_linear_scale"/>
+
+    <TextView
+        android:id="@+id/chipText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:textSize="12sp"
+        android:textColor="@color/subtleTextColor"
+        android:textStyle="bold"
+        tools:text="125.0 km"/>
+</LinearLayout>

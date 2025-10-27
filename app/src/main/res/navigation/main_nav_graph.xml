@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.spstudio.curv_app.ui.fragment.HomeFragment"
+        android:label="@string/main_nav_explore"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/communityFragment"
+        android:name="com.spstudio.curv_app.ui.fragment.CommunityFragment"
+        android:label="@string/main_nav_community"
+        tools:layout="@layout/fragment_community" />
+    <fragment
+        android:id="@+id/myRoutesFragment"
+        android:name="com.spstudio.curv_app.ui.fragment.MyRoutesFragment"
+        android:label="@string/main_nav_my_routes"
+        tools:layout="@layout/fragment_my_routes" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.spstudio.curv_app.ui.fragment.ProfileFragment"
+        android:label="@string/main_nav_profile"
+        tools:layout="@layout/fragment_profile" />
+</navigation>

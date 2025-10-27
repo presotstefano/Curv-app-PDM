@@ -1,0 +1,32 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Base.Theme.CurvApp" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/primaryColor</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorError">@color/dangerColor</item>
+        <item name="android:statusBarColor">@color/backgroundColor</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+
+    <style name="Theme.CurvApp.NoActionBar" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/primaryColor</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorError">@color/dangerColor</item>
+        <item name="android:statusBarColor">@color/backgroundColor</item> <item name="android:windowLightStatusBar">true</item>
+    </style>
+
+    <style name="RatingBarTheme" parent="Theme.AppCompat">
+        <item name="colorControlNormal">@color/borderColor</item>
+        <item name="colorControlActivated">@color/ratingColor</item>
+    </style>
+
+    <style name="Widget.App.CardView.Clickable" parent="Widget.Material3.CardView.Filled">
+        <item name="cardBackgroundColor">@color/cardColor</item>
+        <item name="cardElevation">1dp</item>
+        <item name="cardCornerRadius">12dp</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:foreground">?android:attr/selectableItemBackground</item>
+    </style>
+
+    <style name="Theme.CurvApp" parent="Base.Theme.CurvApp" />
+</resources>
