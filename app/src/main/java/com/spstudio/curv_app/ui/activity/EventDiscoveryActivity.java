@@ -17,6 +17,7 @@ import com.google.firebase.Timestamp; // Importa Timestamp
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.spstudio.curv_app.R;
 import com.spstudio.curv_app.data.model.EventModel;
 import com.spstudio.curv_app.databinding.ActivityEventDiscoveryBinding;
@@ -24,6 +25,7 @@ import com.spstudio.curv_app.ui.adapter.EventAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class EventDiscoveryActivity extends AppCompatActivity implements SwipeRefreshLayout.OnRefreshListener {
 
@@ -55,53 +57,80 @@ public class EventDiscoveryActivity extends AppCompatActivity implements SwipeRe
     }
 
     private void setupRecyclerView() {
-        adapter = new EventAdapter(this, eventList);
+        // === VERIFICA QUESTA RIGA ===
+        adapter = new EventAdapter(this); // Passa SOLO il contesto
+        // === FINE VERIFICA ===
         binding.eventsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         binding.eventsRecyclerView.setAdapter(adapter);
     }
 
     // Metodo chiamato sia all'avvio che dal pull-to-refresh
     private void loadEvents() {
+        Log.d(TAG, "Loading events...");
         binding.progressBar.setVisibility(View.VISIBLE);
         binding.eventsRecyclerView.setVisibility(View.GONE);
         binding.emptyTextView.setVisibility(View.GONE);
-
+        // === LOG Timestamp usato nella query ===
+        Timestamp now = Timestamp.now();
+        Log.d(TAG, "Querying events with dateTime >= " + now.toDate().toString());
         // Query: prendi eventi futuri, ordina per data
         db.collection("events")
-                .whereGreaterThanOrEqualTo("dateTime", Timestamp.now()) // Solo eventi futuri o in corso
+                .whereGreaterThanOrEqualTo("dateTime", now) // Usa la variabile 'now'
                 .orderBy("dateTime", Query.Direction.ASCENDING)
-                // .limit(20) // Considera paginazione futura
                 .get()
-                .addOnSuccessListener(querySnapshot -> {
-                    if (isDestroyed()) return;
+                .addOnCompleteListener(task -> {
+                    if (isDestroyed() || binding == null) return;
                     binding.progressBar.setVisibility(View.GONE);
                     binding.swipeRefreshLayout.setRefreshing(false);
-                    eventList.clear();
-                    for (DocumentSnapshot doc : querySnapshot.getDocuments()) {
-                        eventList.add(EventModel.fromFirestore(doc));
+
+                    if (task.isSuccessful()) {
+                        QuerySnapshot querySnapshot = task.getResult();
+                        eventList.clear();
+                        if (querySnapshot != null && !querySnapshot.isEmpty()) {
+                            Log.d(TAG, "Query successful, found " + querySnapshot.size() + " documents."); // Log esistente
+                            for (DocumentSnapshot doc : querySnapshot.getDocuments()) {
+                                // === LOG prima del parsing ===
+                                Log.d(TAG, "  -> Processing event doc ID: " + doc.getId());
+                                Map<String, Object> data = doc.getData(); // Prendi i dati
+                                Log.d(TAG, "     Raw data: " + (data != null ? data.toString() : "null")); // Stampa i dati grezzi
+                                // ===========================
+                                try {
+                                    EventModel event = EventModel.fromFirestore(doc);
+                                    eventList.add(event);
+                                    // === LOG dopo il parsing ===
+                                    Log.d(TAG, "     Parsed successfully: " + event.getName());
+                                    // ==========================
+                                } catch (Exception e) {
+                                    // Errore durante il parsing
+                                    Log.e(TAG, "     ERROR parsing event document " + doc.getId(), e);
+                                }
+                            }
+                        } else {
+                            Log.d(TAG, "Query successful, but no upcoming events found (snapshot empty or null).");
+                        }
+                        adapter.updateData(eventList);
+                        updateEmptyState();
+                    } else {
+                        Log.e(TAG, "Error loading events", task.getException());
+                        Toast.makeText(EventDiscoveryActivity.this, R.string.event_discovery_error, Toast.LENGTH_SHORT).show();
+                        updateEmptyState();
                     }
-                    adapter.updateData(eventList);
-                    updateEmptyState();
-                    Log.d(TAG, "Loaded " + eventList.size() + " upcoming events.");
-                })
-                .addOnFailureListener(e -> {
-                    if (isDestroyed()) return;
-                    Log.e(TAG, "Error loading events", e);
-                    binding.progressBar.setVisibility(View.GONE);
-                    binding.swipeRefreshLayout.setRefreshing(false);
-                    Toast.makeText(EventDiscoveryActivity.this, R.string.event_discovery_error, Toast.LENGTH_SHORT).show();
-                    updateEmptyState();
                 });
     }
 
     private void updateEmptyState() {
+        // === AGGIUNGI QUESTI LOG ===
+        Log.d(TAG, "updateEmptyState called. eventList size: " + eventList.size());
         if (eventList.isEmpty()) {
             binding.eventsRecyclerView.setVisibility(View.GONE);
             binding.emptyTextView.setVisibility(View.VISIBLE);
+            Log.d(TAG, "  -> Showing empty text view.");
         } else {
             binding.eventsRecyclerView.setVisibility(View.VISIBLE);
             binding.emptyTextView.setVisibility(View.GONE);
+            Log.d(TAG, "  -> Showing recycler view.");
         }
+        // === FINE LOG AGGIUNTI ===
     }
 
     // Implementazione OnRefreshListener

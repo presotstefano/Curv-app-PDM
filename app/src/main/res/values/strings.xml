@@ -301,4 +301,19 @@
     <string name="event_save_error">Failed to publish event: %1s</string>
     <string name="event_image_upload_error">Banner upload failed: %1s</string>
     <string name="event_saving">Publishing Event…</string>
+
+    <string name="event_detail_title">Event Details</string>
+    <string name="event_detail_not_found">Event not found.</string>
+    <string name="event_detail_loading_error">Error loading event details.</string>
+    <string name="event_detail_join_button">Join Event</string>
+    <string name="event_detail_leave_button">Leave Event</string>
+    <string name="event_detail_joining">Joining…</string>
+    <string name="event_detail_leaving">Leaving…</string>
+    <string name="event_detail_join_success">You joined the event!</string>
+    <string name="event_detail_leave_success">You left the event.</string>
+    <string name="event_detail_join_error">Failed to join event: %1s</string>
+    <string name="event_detail_leave_error">Failed to leave event: %1s</string>
+    <string name="event_detail_participants_title">Participants (%d)</string>
+    <string name="event_detail_participants_empty">No participants yet.</string>
+    <string name="event_detail_created_by">Organized By</string>
 </resources>

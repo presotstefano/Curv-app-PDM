@@ -2,12 +2,13 @@ package com.spstudio.curv_app.ui.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log; // Aggiungi import per Log
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast; // Placeholder
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -17,7 +18,8 @@ import com.google.firebase.Timestamp;
 import com.spstudio.curv_app.R;
 import com.spstudio.curv_app.data.model.EventModel;
 import com.spstudio.curv_app.services.SettingsService;
-// import com.spstudio.curv_app.ui.activity.EventDetailActivity; // Da creare
+import com.spstudio.curv_app.ui.activity.EventDetailActivity;
+// import com.spstudio.curv_app.ui.activity.EventDetailActivity;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -27,23 +29,32 @@ import java.util.Locale;
 
 public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventViewHolder> {
 
-    private List<EventModel> events;
+    // === MODIFICA 1: Lista interna final e inizializzata ===
+    private final List<EventModel> events = new ArrayList<>();
     private final Context context;
     private final SettingsService settingsService;
 
-    public EventAdapter(Context context, List<EventModel> events) {
+    // Costruttore riceve solo Context
+    public EventAdapter(Context context) {
         this.context = context;
-        this.events = (events != null) ? events : new ArrayList<>();
-        this.settingsService = SettingsService.getInstance(context); // Per formattare distanza
+        this.settingsService = SettingsService.getInstance(context);
+        // NON passare la lista nel costruttore
     }
 
+    // === MODIFICA 2: updateData pulisce e copia nella lista interna ===
     public void updateData(List<EventModel> newEvents) {
-        this.events.clear();
+        Log.d("EventAdapter", "Adapter updateData called with " + (newEvents != null ? newEvents.size() : 0) + " events.");
+
+        this.events.clear(); // Pulisce la lista INTERNA dell'adapter
         if (newEvents != null) {
-            this.events.addAll(newEvents);
+            this.events.addAll(newEvents); // Aggiunge i nuovi elementi alla lista INTERNA
         }
-        notifyDataSetChanged();
+
+        Log.d("EventAdapter", "Adapter internal list size is now: " + this.events.size());
+        notifyDataSetChanged(); // Notifica al RecyclerView
+        Log.d("EventAdapter", "notifyDataSetChanged() called.");
     }
+    // === FINE MODIFICHE ===
 
     @NonNull
     @Override
@@ -58,22 +69,23 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventViewHol
         EventModel event = events.get(position);
         holder.bind(event, context, settingsService);
 
-        // Click sull'intera card per andare al dettaglio evento
         holder.itemView.setOnClickListener(v -> {
-            // TODO: Navigare a EventDetailActivity
-            // Intent intent = new Intent(context, EventDetailActivity.class);
-            // intent.putExtra("EVENT_ID", event.getId());
-            // context.startActivity(intent);
-            Toast.makeText(context, "View event: " + event.getName(), Toast.LENGTH_SHORT).show();
+            // === MODIFICA QUI ===
+            Intent intent = new Intent(context, EventDetailActivity.class);
+            intent.putExtra(EventDetailActivity.EXTRA_EVENT_ID, event.getId()); // Passa l'ID
+            context.startActivity(intent);
+            // Toast.makeText(context, "View event: " + event.getName(), Toast.LENGTH_SHORT).show(); // Rimuovi placeholder
+            // === FINE MODIFICA ===
         });
     }
 
     @Override
     public int getItemCount() {
-        return events.size();
+        Log.d("EventAdapter", "getItemCount() called, returning: " + events.size());
+        return events.size(); // Ritorna la dimensione della lista interna
     }
 
-    // --- ViewHolder ---
+    // --- ViewHolder (Invariato) ---
     static class EventViewHolder extends RecyclerView.ViewHolder {
         ImageView eventBannerImageView;
         TextView eventNameTextView;
@@ -93,34 +105,29 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventViewHol
         public void bind(EventModel event, Context context, SettingsService settingsService) {
             eventNameTextView.setText(event.getName());
 
-            // Formatta Data e Ora
             if (event.getDateTime() != null) {
                 Date date = event.getDateTime().toDate();
-                // Puoi usare formati più specifici o librerie come JodaTime/ThreeTenABP
                 SimpleDateFormat sdf = new SimpleDateFormat("MMM dd, yyyy 'at' hh:mm a", Locale.getDefault());
                 dateTimeTextView.setText(sdf.format(date));
             } else {
                 dateTimeTextView.setText("Date TBD");
             }
 
-            // Info Percorso (usa campi denormalizzati)
             String routeName = event.getRouteName() != null ? event.getRouteName() : "Unknown Route";
             String distanceFormatted = settingsService.formatDistance(event.getRouteDistanceKm());
-            routeInfoTextView.setText(context.getString(R.string.event_detail_route_info, routeName, distanceFormatted)); // Crea questa stringa: "Route: %1$s (%2$s)"
+            routeInfoTextView.setText(context.getString(R.string.event_detail_route_info, routeName, distanceFormatted));
 
-            // Partecipanti (usa campo contatore)
             int count = event.getParticipantCount();
-            participantsTextView.setText(context.getResources().getQuantityString(R.plurals.participant_count, count, count)); // Crea questa risorsa plurals
+            participantsTextView.setText(context.getResources().getQuantityString(R.plurals.participant_count, count, count));
 
-            // Carica Banner (se esiste)
             String bannerUrl = event.getBannerUrl();
             if (bannerUrl != null && !bannerUrl.isEmpty()) {
                 eventBannerImageView.setVisibility(View.VISIBLE);
                 Glide.with(context)
                         .load(bannerUrl)
                         .centerCrop()
-                        .placeholder(R.color.backgroundColor) // Placeholder
-                        .error(R.color.borderColor) // Immagine errore
+                        .placeholder(R.color.backgroundColor)
+                        .error(R.color.borderColor)
                         .into(eventBannerImageView);
             } else {
                 eventBannerImageView.setVisibility(View.GONE);
